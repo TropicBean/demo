@@ -1,0 +1,25 @@
+GET http://localhost:3001/product/
+
+###
+
+GET http://localhost:3001/product/633a0825d113849be4d944d9
+
+###
+
+POST http://localhost:3001/product/
+Content-Type: application/json
+
+{
+    "name" : "Product 200",
+    "owner" : "kubabst@gmail.com"
+
+}
+
+###
+DELETE http://localhost:3001/product/633a0812d113849be4d944d5
+
+###
+PATCH  http://localhost:3001/product/633a081dd113849be4d944d7
+Content-Type: application/json
+
+{"name" : "Updated product name"}

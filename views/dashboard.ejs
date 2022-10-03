@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/jquery.min.js"></script>
+</head>
+<body>
+    
+
+  <div class="app-body dashboard">
+    <h1>Dashboard</h1>
+
+    <form action="/product/maint" method="GET">
+      <button type="submit">View my products</button>
+    </form>
+    
+    <% if( typeof(message) != 'undefined') { %>
+      <div class="notification"><%= message %></div>
+    <% } %>  
+    <div class="visualizer">
+      <div phase="1" class="object  visualizer-close"></div>
+      <div class="object2  visualizer-close"></div>
+      <div class="object3  visualizer-close"></div>
+      <div class="object4  visualizer-close"></div>
+      <div class="object5  visualizer-close"></div>
+      <div class="object6  orbit-close visualizer-close"></div>
+      <div class="object7  orbit-close visualizer-close"></div>
+      <div class="object8  orbit-close visualizer-close"></div>
+      <div class="object9  orbit-close visualizer-close"></div>
+      <div class="object10 orbit-close visualizer-close"></div>
+      <div class="object11 orbit-close visualizer-close"></div>
+      <div class="object12 orbit-close visualizer-close"></div>	
+      <div>
+    </div>
+
+  </div>
+  <a href="/logout">Logout</a>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/js/products.js"></script>
+</head>
+<body>
+    
+
+  <div class="app-body dashboard">
+    <h1>My Products</h1>
+
+    <div class="product-view">
+      <div class='container'>
+        <% if( typeof(products) != 'undefined') { %>
+          <% for(let i=0; i<products.length; i++) {%>
+            
+            <div class='draggable'  draggable='true'>
+
+              <input type="hidden" name='owner' placeholder='Owner' value="<%= products[i].owner %>">
+              <input type="hidden" name='id' placeholder='id' value="<%= products[i]._id %>">
+              <input class="product-input" name='name' placeholder='Name' value="<%= products[i].name %>">
+              <input class="product-input" name='Type' placeholder='Type' value="<%= products[i].type %>">
+              <textarea class="product-input" name="details"><%= products[i].details %></textarea>
+              <div class='button remove-control'>Delete</div>
+          </div>
+  
+  
+          <% } %>
+        <% } %>  
+      </div>
+
+    </div>
+    <% if( typeof(message) != 'undefined') { %>
+      <div class="notification"><%= message %></div>
+    <% } %>  
+    <div class="visualizer">
+      <div phase="1" class="object  visualizer-close"></div>
+      <div class="object2  visualizer-close"></div>
+      <div class="object3  visualizer-close"></div>
+      <div class="object4  visualizer-close"></div>
+      <div class="object5  visualizer-close"></div>
+      <div class="object6  orbit-close visualizer-close"></div>
+      <div class="object7  orbit-close visualizer-close"></div>
+      <div class="object8  orbit-close visualizer-close"></div>
+      <div class="object9  orbit-close visualizer-close"></div>
+      <div class="object10 orbit-close visualizer-close"></div>
+      <div class="object11 orbit-close visualizer-close"></div>
+      <div class="object12 orbit-close visualizer-close"></div>	
+      <div>
+    </div>
+
+  </div>
+  <a href="/logout">Logout</a>
+
+</body>
+</html>

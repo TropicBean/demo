@@ -1,0 +1,7 @@
+.env
+node_modules
+functions
+googlepassport.js
+.firebasesrc
+firebase.json
+.firebase
