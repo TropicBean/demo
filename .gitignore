@@ -2,6 +2,7 @@
 node_modules
 functions
 googlepassport.js
-.firebasesrc
+.firebaserc
 firebase.json
 .firebase
+package-lock.json

@@ -30,4 +30,4 @@ const Product = new Schema({
   })
 
 
-module.exports = mongoose.model('productData' , Product )
+module.exports = mongoose.model('productData' , Product ) 

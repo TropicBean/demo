@@ -4,6 +4,7 @@ const passport = require("passport");
 const { request } = require('../app');
 const productModel = require("../models/product")
 
+
 router.get('/maint', async(req,res)=>{
 
   try{
@@ -94,4 +95,5 @@ async function getProduct(req,res,next){
   res.product = product
   next() 
 }
+
 module.exports = router;
