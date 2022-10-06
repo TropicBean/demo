@@ -1,29 +1,32 @@
-var express = require('express');
-var bcrypt = require('bcrypt')
-var router = express.Router();
-var userModel = require('../models/user')
-const { authenticate } = require('passport');
+const express = require('express');
+const router = express.Router();
+const userModel = require('../models/user')
 const passport = require('../bin/passportconfig');
-const connectEnsureLogin = require('connect-ensure-login');// authorization
+const connectEnsureLogin = require('connect-ensure-login'); // authorization
 
-/* GET home page. */
-router.get('/',passport.authenticate('local', {failureRedirect: '/login'}), function(req, res, next) {
-  res.render('index.ejs', { name : 'Karl'});
+//Try to route default route to dashboard or login
+router.get('/',passport.authenticate('local', {failureRedirect: '/login' }), function(req, res, next) {
+  res.render('dashboard.ejs')
 });
-//
+
 router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(), (req,res) =>{
 
- res.render('dashboard.ejs')
-
- console.log("done rendering dashboard")
+  res.render('dashboard.ejs')
 })
 
 //login
 router.get('/login' , (req,res)=>{
-  res.render('login.ejs')
+  
+  var msgerror = req.query.msg;
+
+  if(msgerror == "true"){
+    res.render('login.ejs', {message : "Invalid login details , please ensure the username/password is correct"})
+  } else{
+    res.render('login.ejs')
+  }
 })
 
-router.post('/login' , passport.authenticate('local', {failureRedirect: '/login'}), (req,res)=>{
+router.post('/login' , passport.authenticate('local', {failureRedirect: '/login?msg=true'}), (req,res)=>{
   console.log(req.user, "Successfully logged in")
   res.redirect('/dashboard')
 })
@@ -54,7 +57,7 @@ router.post('/register' , async (req,res)=>{
     return
   }     
   try{
-    const newUser = userModel.register({username: username}, password )
+    const newUser = await userModel.register({username: username}, password )
 
     if(newUser){
       res.render("login.ejs" , {message : "User registered successfully ,please log in"})
@@ -68,28 +71,21 @@ router.post('/register' , async (req,res)=>{
 
 // Route to Log out
 router.get('/logout', function(req, res) {
-
   req.logout(function(err) {
     if (err) { return next(err); }
     res.redirect('/login');
   })
-
-  
 });
 
-//
-/* GET users listing. */
-router.get('/auth/google', passport.authenticate('google', { scope: [ 'profile' ]}));
 
+// Google passport routing
+router.get('/auth/google', passport.authenticate('google', { scope: [ 'profile' ]}));
 
 router.get('/auth/google/callback', passport.authenticate( 'google', {
    successRedirect: '/dashboard',
    failureRedirect: '/login'
 }));
 
-router.get('/auth/google/success' , (req,res) => {
-  res.render("dashboard.ejs")
-})
 
 module.exports = router;
 

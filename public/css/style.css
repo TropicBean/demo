@@ -6,7 +6,6 @@ body {
   flex-direction: row;
   justify-content:  center;
   background: rgb(0,0,0);
-  
   background-size: cover;
   text-align: center;
   height: 100vh
@@ -15,10 +14,17 @@ body {
 .app-body{
 
   background-color: #041F3F   ;
-  width: 28rem;
+  width: 550px;
   border-radius: 2em;
   height: 15rem;
   box-shadow: 0px 0px 20px rgb(71, 70, 70);
+  border-width: thin;
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard{
@@ -63,100 +69,70 @@ a > img{
 .visualizer-close{
   width : 150px  ;
   height:  150px  ;
-
   background-color: none ;
   margin: auto auto ;
-
   transform: translateX(-50%) translateY(-50%) ;
   transition: ease-in;
-
   background-image: url("/svg/giant.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: absolute;			
   opacity: 70%;
-
   z-index: -1;
 }
 
 .orbit-close{
-
   width :  150px  ;
   height:  150px ;
-
   transform: translateX(-50%) translateY(-50%);
   transition: ease-in;
-
 }
 
 
 .object {		
-  
   animation: rotate 3.1s linear  forwards infinite normal;
 }
-
 .object2{
-
   animation: rotate 3.2s linear  forwards infinite normal;
 }
 .object3{
-
   animation: rotate 3.3s linear forwards infinite normal;
 }
 .object4{
-
   animation: rotate 3.4s linear  forwards infinite normal;
 }
 .object5{
   animation: rotate 3.5s linear  forwards infinite normal;
 }
 .object6{
-
   animation: orbit 4s linear forwards infinite normal;
 }
-
 .object7{		
-
   animation: orbit 4.1s linear  forwards infinite normal;
 }
-
 .object8{
-
   animation: orbit 4.2s linear  forwards infinite normal;
 }
 .object9{
-
   animation: orbit 4.3s linear forwards infinite normal;
 }
 .object10{
-
   animation: orbit 4.4s linear  forwards infinite normal;
 }
 .object11{
   animation: orbit 4.5s linear  forwards infinite normal;
 }
 .object12{
-
   animation: orbit 4.6s linear forwards infinite normal;
-}
-
-
-.object1:hover{
-/*				transform: rotate(360deg);*/
-  /*transition: all 2s ease-in-out ; */
-
 }
 
 @keyframes rotate{
   100%{
-    
     transform: rotate(360deg) ;
-
   }
 
   50%{
-    /*background-color:#C3CEDA; */
     transform:  rotate(180deg)  ;
   }
 
@@ -164,14 +140,10 @@ a > img{
     transform: rotate(0deg) ;
   }
 }
+
 @keyframes orbit{
   100%{
     transform: rotate(360deg) translateX(-50%)  translateY(-50%);
-
-  }
-
-  50%{
-    /*background-color:#C3CEDA; */
   }
 
   0%{
@@ -179,15 +151,6 @@ a > img{
   }
 }
 
-@keyframes zoom-in  {
-
-  100%{
-    transform: scale(50%,50%) ;
-  }
-
-
-  
-}
 @keyframes flutter {
 
   100%{
@@ -216,74 +179,32 @@ a > img{
   font-weight: bold;
 }
 
+.product-add{
+  height : 50px ;
+
+}
 .product-view{
   display : flex ;
   justify-content: center ;
-}
-
-.clHid{
-  display: none !important ;
-}
-.form-builder{
-  display :flex ;
-  flex-direction: row;
-  justify-content:  center;;
-  
-
-}
-.close-modal , .copy-clipboard{
-  margin: 30px auto auto auto;
-  width: 170px;
-  height: 45px;
-
-}
-
-.table-builder{
-  overflow: scroll;
-  display :flex ;
-  flex-direction: row;
-  justify-content: center;
-  
-}
-
-.modal{
-  z-index: 999;
-  background-color: #e8e8e8;
-  margin: auto;
-  width: fit-content;
-  height: fit-content;
-  padding: 35px 200px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px black;
-}
-
-.import-builder{
-  display :flex ;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .container{
   padding: 10px;
   padding-bottom: 40px;
   margin-top: 10px;
-  width: 190px;
+  width: 450px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   position: relative;
 }
-.draggable{
+.product{
   background-color: #e8e8e8;
   box-shadow: 5px 5px 5px black;
   padding: 14px;
   margin: 10px;
   color:#002153 ;
-  cursor:
-  move;
-  width: 142px;
   opacity: 1;
   border-radius: 10px;
   display: flex;
@@ -293,14 +214,14 @@ a > img{
   align-items: stretch;
   height: fit-content;
   font-size: 0.7em;
+
 }
 
-.draggable > select, .draggable > input{
+.product > select, .product > input, .product > textarea{
   padding: 3px;
   border-radius: 12px;
   margin: 4px;
 }
-
 
 .dragging{
   background-color: #0021535b;
@@ -324,45 +245,34 @@ a > img{
 
 }
 .add-container{
-
   width: 75px;
   height: 45px;
   left: 160px;
   position: relative;
-
 }
 
 .add-control{
-
   width: 100px;
   height: 30px;
   position: absolute;
   bottom: 0;
-
 }
 
 .remove-control{
-
   width: 70px;
   height: 30px;
   left: 10%;
   bottom: 10%;
   size: 15px;
-
 }
 
 .button:hover{
-
 	background: linear-gradient(to right,#6e8d0b, #002153, #6e8d0b);
 	background-size: 700% 700%;
 	animation: gradient 15s ease-in infinite;
-
-
 }
 .button:active{
-
   opacity: 0.5;
-
 }
 
 @keyframes gradient {
@@ -375,43 +285,4 @@ a > img{
 	100% {
 		background-position: 0% 50%;
 	}
-}
-
-/* -- ARROW 6       -- */
-/* Arrow holder */
-.arrowed {
-	position: relative;
-	height: 200px; width: 200px;
-	margin: 0 20px 20px 0;
-	border: 1px solid rgba(0,0,0,0.25);
-}
-
-.arrow-6 {
-	/* more triangle */
-	height: 10px; width: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.6);
-	border-width: 3px 3px 0 0;
-	transform: rotate(45deg);
-}
-
-.arrow-6:before, .arrow-6:after {
-	content: '';
-	position: absolute;
-	display: block;
-	height: 10px; width: 10px;
-	border-width: 3px 3px 0 0;
-}
-
-.arrow-6:before {
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	border-width: 3px 3px 0 0;
-	/* top - distance minus border */
-	top: 7px; left: -10px;
-}
-
-.arrow-6:after {
-	border: 1px solid rgba(255, 255, 255, 1);
-	border-width: 3px 3px 0 0;
-	/* top - distance plus border */
-	top: -13px; left: 10px;
 }

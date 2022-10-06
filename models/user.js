@@ -11,7 +11,6 @@ db.once("open", function () {
   console.log("Connected successfully");
 });
 
-
 const Schema = mongoose.Schema     
 
 const User = new Schema({
@@ -24,7 +23,6 @@ const User = new Schema({
       updatedAt: "updated_at"
     }
   })
-
 
 User.plugin(passportLocalMongoose);
 

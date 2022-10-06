@@ -6,11 +6,7 @@ require("dotenv").config()
 
 //Mogoose strategy
 passport.use(User.createStrategy())
-/*
-// To use with sessions
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-*/
+
 //Google strategy
 passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID,

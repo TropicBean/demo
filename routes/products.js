@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const passport = require("passport");
+const passport = require("../bin/passportconfig");
 const { request } = require('../app');
 const productModel = require("../models/product")
+const connectEnsureLogin = require('connect-ensure-login'); // authorization
 
-
-router.get('/maint', async(req,res)=>{
+router.get('/maint', connectEnsureLogin.ensureLoggedIn(),  async(req,res)=>{
 
   try{
     console.log("Finding products for user:" , req.user.username)
@@ -31,10 +31,10 @@ router.get('/', async (req,res) => {
 router.post('/', async (req,res) => {
   console.log(req.user)
   const product = new productModel({
-    owner: req.body.owner , 
+    owner: req.user.username , 
     name: req.body.name ,
-    type: "Practical" ,
-    details: "Used for mining" 
+    type: req.body.type ,
+    details: req.body.details 
   })
 
   try{
