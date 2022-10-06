@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
-const passportLocalMongoose = require('passport-local-mongoose')
 
 require('dotenv').config() 
-
 
 mongoose.connect(process.env.DB_CONNECTION_STRING + "?retryWrites=true&w=majority",
 {useNewUrlParser: true , 
@@ -13,7 +11,6 @@ db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
 });
-
 
 const Schema = mongoose.Schema     
 
