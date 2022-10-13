@@ -14,6 +14,17 @@ router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(), (req,res) =>{
   res.render('dashboard.ejs')
 })
 
+//home
+router.get('/home' , (req,res)=>{
+  
+  var msgerror = req.query.msg;
+
+
+  res.render('home.ejs')
+
+})
+
+
 //login
 router.get('/login' , (req,res)=>{
   
